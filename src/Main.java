@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 import baseInterface.IAlgorithm;
 import baseInterface.IAlgorithm2;
+import dataStructure.ArrayQueue;
 import etc.StringReverse;
 import search.BinarySearch;
 import sort.QuickSort;
@@ -11,8 +12,8 @@ public class Main {
 	static public void main(String[] args){
 		//sortTest();
 		//searchTest();
-		stringReverseTest();
-		
+		//stringReverseTest();
+		dataStructureTest();
 		
 	}
 	
@@ -48,5 +49,23 @@ public class Main {
 		
 		System.out.println("문자열 : " + target);
 		System.out.println("리버싱 : " + sr.reverse());
+	}
+	
+	static public void dataStructureTest(){
+		ArrayQueue aq = new ArrayQueue(10);
+		
+		aq.insert(1);
+		aq.insert(2);
+		aq.insert(3);
+		aq.insert(4);
+		
+		
+		System.out.println(aq.peek());
+		System.out.println(aq.remove());
+		System.out.println(aq.remove());
+		System.out.println(aq.remove());
+		System.out.println(aq.remove());
+		
+		System.out.println(aq.remove());
 	}
 }
