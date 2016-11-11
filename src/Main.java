@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 import baseInterface.IAlgorithm;
 import baseInterface.IAlgorithm2;
+import etc.StringReverse;
 import search.BinarySearch;
 import sort.QuickSort;
 	
@@ -9,7 +10,8 @@ public class Main {
 
 	static public void main(String[] args){
 		//sortTest();
-		searchTest();
+		//searchTest();
+		stringReverseTest();
 		
 		
 	}
@@ -37,5 +39,14 @@ public class Main {
 		IAlgorithm2 algorithm = new BinarySearch();
 		
 		System.out.printf("결과 : %d ",algorithm.search(array, target));
+	}
+	
+	static public void stringReverseTest(){
+		String target = "Hello World!";
+		
+		StringReverse sr = new StringReverse(target);
+		
+		System.out.println("문자열 : " + target);
+		System.out.println("리버싱 : " + sr.reverse());
 	}
 }

@@ -11,8 +11,47 @@ public class QuickSort implements IAlgorithm {
 		return quickSort(array,0,array.length-1);
 	}
 	
+
+	private int partition(int[] array, int left, int right, int pivot){
+		int leftPtr = left - 1;
+		int rightPtr = right;
+		
+		while (true) {
+		  while (array[++leftPtr] < pivot);		
+		  while (rightPtr > 0 && array[--rightPtr] > pivot);
+		
+		  if (leftPtr >= rightPtr)
+		    break;
+		  else
+		    swap(array,leftPtr, rightPtr);
+		}
+		
+		swap(array,leftPtr, right);
+		return leftPtr;
+	}
 	
-	private int partition(int[] array, int left, int right, int pivotIndex){
+	private int[] quickSort(int[] array, int left, int right){
+		int pivotIndex = right; // 배열의 최우측 수를 기준으로 뽑음
+
+		if (right - left <= 0)      // if size is 1,
+			return array;                    //  it's already sorted
+		else {
+			int  partition = partition (array,left, right,array[pivotIndex]);
+			quickSort (array,left, partition-1);
+			quickSort (array,partition+1, right);
+		}
+		
+		
+		return array;
+	}
+	
+	private void swap(int[] array, int i, int j){
+		int temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;		
+	}
+	
+	/*private int partition(int[] array, int left, int right, int pivotIndex){
 		int temp;
 		int pivot= array[pivotIndex];		
 		
@@ -55,6 +94,6 @@ public class QuickSort implements IAlgorithm {
 		
 		
 		return array;
-	}
+	}*/
 
 }
